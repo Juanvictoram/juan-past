@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "app-cardapio-online"
+  },
+    "targets": {
+    "app-cardapio-online": {
+      "hosting": {
+        "admin-cd--teste": [
+          "admin-cd--teste"
+        ]
+      }
+    }
+  }
+}

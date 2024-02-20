@@ -1,0 +1,21 @@
+{
+  "name": "Rafa Restaurante",
+  "short_name": "Rafa Restaurante",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#fff",
+  "description": "App para Rafa Restaurante.",
+  "icons": [
+
+
+    {
+      "src": "/src/favicon.ico",
+      "sizes": "384x384",
+      "type": "image/png"
+    }
+
+
+  ]
+
+
+}

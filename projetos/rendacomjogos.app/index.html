@@ -1,0 +1,1410 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <script src="https://kit.fontawesome.com/bc3d836cd7.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+    <link rel="stylesheet" href="./css/custom.css">
+    <script type="text/javascript" src="./js/qrcode.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js" integrity="sha512-uMtXmF28A2Ab/JJO2t/vYhlaa/3ahUOgj1Zf27M5rOo8/+fcTUVH0/E0ll68njmjrLqOBjXM3V9NiPFL5ywWPQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.5/jquery.inputmask.min.js"></script>
+
+    
+        <script>
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+                n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+                if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+                n.queue=[];t=b.createElement(e);t.async=!0;
+                t.src=v;s=b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t,s)}(window, document,'script',
+                'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '736486117891181');
+            fbq('track', 'PageView');
+        </script>
+        <noscript>
+            <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1537245983759409&ev=PageView&noscript=1"/>
+        </noscript>
+
+    
+    <style>
+        #wallet input {
+            width: 100%;
+            background-color: white;
+            color: black;
+        }
+
+        #wallet #pix {}
+
+        #wallet-saque input {
+            width: 100%;
+            background-color: white;
+            color: black;
+        }
+
+        #wallet-saque #pix {}
+
+        .rank-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 100%;
+        }
+
+        .borda-laranja {
+            border: 3px solid orange;
+        }
+    </style>
+    <title>Renda com Jogos</title>
+
+    <script src="https://unpkg.com/imask"></script>
+</head>
+<body>
+    <input type="hidden" id="game-played" value="">
+    <!-- header start  -->
+    <!-- ========================= -->
+    <header class="header" id="header">
+        <div class="container-fluid">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-12 col-lg">'
+                    <div class="header-first d-flex gap-2">
+                        <div class="brand-content d-none d-lg-block">
+                            <img src="./img/logo-oficial.png?d=20231214165915" style="border-radius: 10px;" alt="Logo" width="111" />
+                        </div>
+                        <nav class="navbar navbar-expand-lg bg-transparent w-100">
+                            <div class="d-flex align-items-center w-100 justify-content-between d-lg-none">
+                                <div class="d-flex align-items-center">
+                                    <button class="navbar-toggler px-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                        <span class="navbar-toggler-icon"></span>
+                                    </button>
+                                    <div class="brand-content d-lg-none">
+                                        <img src="./img/logo-oficial.png?d=20231214165915" style="border-radius: 10px;" alt="Logo" width="111" />
+                                    </div>
+                                </div>
+
+                                <!-- mobile buttons only -->
+                                <div class="header-buttons d-flex align-items-center gap-2 h-100 d-lg-none">
+                                                                            <!--                                    <div class="dropdown">-->
+                                        <!--                                        <a class="nav-link dropdown-toggle fs-4" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">-->
+                                        <!--                                            <i class="bi bi-gear"></i>-->
+                                        <!--                                        </a>-->
+                                        <!--                                        <ul class="dropdown-menu dropdown-menu-dark">-->
+                                        <!--                                            <li><a class="dropdown-item" href="#">Configurações da conta</a></li>-->
+                                        <!--                                            <li><a class="dropdown-item open-wallet" href="#" data-bs-toggle="modal" data-bs-target="#wallet">Depositar</a></li>-->
+                                        <!--                                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#wallet-saque">Sacar</a></li>-->
+                                        <!--                                            <li><a class="dropdown-item logout" href="#" id="logout">Sair</a></li>-->
+                                        <!--                                        </ul>-->
+                                        <!--                                    </div>-->
+                                    <a class="btn btn-danger fs-3 w-100 text-uppercase open-wallet" href="#" data-bs-toggle="modal" data-bs-target="#wallet">Depositar</a>
+                                    <div class="dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <div class="funds">
+                                                <i class="bi bi-bank2 me-2"></i>
+                                                <span class="balanceResolve">R$ 0,00</span>
+                                            </div>
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-menu-dark pb-0">
+                                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#wallet-saque">Sacar</a></li>
+                <!--                                            <li><a class="dropdown-item" href="#">Histórico de transações</a></li>-->
+                <!--                                            <li><a class="dropdown-item" href="#">Histórico de apostas</a></li>-->
+                                            <li><a class="dropdown-item open-wallet" href="#" data-bs-toggle="modal" data-bs-target="#wallet">Depositar</a></li>
+                                            <li><a class="btn btn-danger fs-3 w-100 text-uppercase logout" href="#" id="logout">Sair</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="dropdown dropstart">
+                                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                                            <div class="profile-menu">
+                                                <div class="profile-icon">
+                                                    <i class="bi bi-person-circle"></i>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-dark profile-menu-dropdown p-0">
+                                            <div class="profile-menu-top d-flex gap-3 align-items-center position-relative">
+                                                <i class="bi bi-x-lg text-white position-absolute top-0 end-0 m-3 close-dropdown-quests" data-bs-toggle="dropdown"></i>
+                                                <div class="profile-icon">
+                                                    <i class="bi bi-person-circle"></i>
+                                                </div>
+                                                <div class="d-flex flex-column w-100 ">
+                                                    <div class="fw-semibold">juan</div>
+                                                    <div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                                                    </div>
+                            </div>
+                            
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-3 ms-lg-3 mt-4 mt-md-0">
+                                                                        <li class="nav-item">
+                                        <a class="nav-link" href="#" onclick="document.location.href='/profile.php'"><i class="bi bi-person"></i> Convidar</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="nav-link" href="#mais-jogados"><i class="bi bi-house"></i> Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#" id="to-games"><i class="bi bi-controller"></i> Jogos</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/officer/login.php"><i class="bi bi-cash"></i> Afiliados</a>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="bi bi-three-dots"></i>
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-menu-dark">
+                                            <li class="dropdown-item small">Ajuda</li>
+                                            <li><a class="dropdown-item" href="#" id="to-faq"><i class="bi bi-question-circle"></i> FAQ</a></li>
+
+                                            <li><a class="dropdown-item" href="https://api.whatsapp.com/send?phone=" target="_blank"><i class="bi bi-headset"></i> Suporte</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-6 col-lg d-none d-lg-block">
+                    <div class="header-second d-flex justify-content-end h-100">
+                        <div class="header-buttons d-flex align-items-center gap-2 h-100">
+                                                        <a class="btn btn-danger fs-3 w-100 text-uppercase open-wallet" href="#" data-bs-toggle="modal" data-bs-target="#wallet">Depositar</a>
+                            <div class="dropdown me-2">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <div class="funds">
+                                        <i class="bi bi-bank2 me-2"></i>
+                                        <span class="balanceResolve">R$ 0,00</span>
+                                    </div>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-dark pb-0">
+                                    <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#wallet-saque">Sacar</a></li>
+        <!--                                    <li><a class="dropdown-item" href="#">Histórico de transações</a></li>-->
+        <!--                                    <li><a class="dropdown-item" href="#">Histórico de apostas</a></li>-->
+                                    <li><a class="dropdown-item open-wallet" href="#" data-bs-toggle="modal" data-bs-target="#wallet">Depositar</a></li>
+                                    <li><a class="btn btn-danger fs-3 w-100 text-uppercase logout" href="#" id="logout">Sair</a></li>
+                                </ul>
+                            </div>
+                            <div class="dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                                    <div class="profile-menu">
+                                        <div class="profile-icon">
+                                            <i class="bi bi-person-circle"></i>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-dark profile-menu-dropdown p-0">
+                                    <div class="profile-menu-top d-flex gap-3 align-items-center">
+                                        <div class="profile-icon">
+                                            <i class="bi bi-person-circle"></i>
+                                        </div>
+                                        <div class="d-flex flex-column w-100 ">
+                                            <div class="fw-semibold">juan</div>
+                                            <div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                                                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header end -->
+
+    <div class="page-wrapper">
+        
+<section class="p-0" id="home">
+    <div class="swiper swiper-banner">
+        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                          <a href="#" class="open-credit-warn">
+                                              <img src="./img/ig-fruit-ninja.png?d=20231214165915" class="img-fluid w-100">
+                                          </a>
+                                      </div><div class="swiper-slide">
+                                          <a href="#" class="open-credit-warn">
+                                              <img src="./img/ig-mario.png?d=20231214165915" class="img-fluid w-100">
+                                          </a>
+                                      </div><div class="swiper-slide">
+                                          <a href="#" class="open-credit-warn">
+                                              <img src="./img/ig-subway.png?d=20231214165915" class="img-fluid w-100">
+                                          </a>
+                                      </div>                    </div>
+    </div>
+</section>
+
+<!-- mais jogados -->
+<!-- =========================== -->
+<section class="section bg-dark" id="mais-jogados">
+    <div class="container">
+        <div class="section-title">
+            <h3><i class="bi bi-controller"></i> Mais jogados</h3>
+        </div>
+        <div class="row mt-5 g-5">
+                            <div class="col-lg-4 mt-4 mt-lg-0">
+                    <div class="games-card h-100 position-relative">
+                        <div class="games-card-media mb-3 position-relative">
+                            <div class="games-card-hover d-flex flex-column justify-content-center h-100 gap-2">
+                                                                    <a class="btn btn-primary btn-sm px-5 open-credit-warn">Jogar agora</a>
+                                    <a onclick="useFreeBet(9961);" class="btn btn-primary btn-sm px-5" href="/game.php?g=fruit-ninja&fb=1">Testar 2 / 3</a>                            </div>
+                            <img src="img/thumb_fruit-ninja.png?d=20231214165915" class="img-fluid" alt="">
+                            <div class="position-absolute top-0 end-0 px-2 py-1 bg-dark rounded-2 m-2 pointer">
+                                <i class="bi bi-star"></i>
+                            </div>
+                        </div>
+                        <h4>Fruit Ninja</h4>
+                        <p class="fw-semibold small mb-3">iCode</p>
+                    </div>
+                </div>
+                            <div class="col-lg-4 mt-4 mt-lg-0">
+                    <div class="games-card h-100 position-relative">
+                        <div class="games-card-media mb-3 position-relative">
+                            <div class="games-card-hover d-flex flex-column justify-content-center h-100 gap-2">
+                                                                    <a class="btn btn-primary btn-sm px-5 open-credit-warn">Jogar agora</a>
+                                    <a onclick="useFreeBet(9962);" class="btn btn-primary btn-sm px-5" href="/game.php?g=mario&fb=1">Testar 0 / 3</a>                            </div>
+                            <img src="img/thumb_mario.png?d=20231214165915" class="img-fluid" alt="">
+                            <div class="position-absolute top-0 end-0 px-2 py-1 bg-dark rounded-2 m-2 pointer">
+                                <i class="bi bi-star"></i>
+                            </div>
+                        </div>
+                        <h4>Mario</h4>
+                        <p class="fw-semibold small mb-3">iCode</p>
+                    </div>
+                </div>
+                            <div class="col-lg-4 mt-4 mt-lg-0">
+                    <div class="games-card h-100 position-relative">
+                        <div class="games-card-media mb-3 position-relative">
+                            <div class="games-card-hover d-flex flex-column justify-content-center h-100 gap-2">
+                                                                    <a class="btn btn-primary btn-sm px-5 open-credit-warn">Jogar agora</a>
+                                    <a onclick="useFreeBet(9965);" class="btn btn-primary btn-sm px-5" href="/game.php?g=subway&fb=1">Testar 0 / 3</a>                            </div>
+                            <img src="img/thumb_subway.png?d=20231214165915" class="img-fluid" alt="">
+                            <div class="position-absolute top-0 end-0 px-2 py-1 bg-dark rounded-2 m-2 pointer">
+                                <i class="bi bi-star"></i>
+                            </div>
+                        </div>
+                        <h4>Subway Cash</h4>
+                        <p class="fw-semibold small mb-3">iCode</p>
+                    </div>
+                </div>
+                    </div>
+    </div>
+</section>
+<!-- mais jogados end -->
+
+<section class="section bg-dark" id="em-breve" style="display: none;">
+    <div class="container">
+        <div class="section-title">
+            <h3><i class="bi bi-controller"></i> Em desenvolvimento</h3>
+        </div>
+        <div class="row mt-5 g-5">
+                                        <div class="col-lg-4 mt-4 mt-lg-0">
+                    <div class="games-card h-100 position-relative">
+                        <div class="games-card-media mb-3 position-relative">
+                            <img src="img/thumb_sapinho.png?d=20231214165915" class="img-fluid" alt="" style="filter: grayscale(100%);">
+                        </div>
+                        <h4>Sapinho</h4>
+                        <p class="fw-semibold small mb-3">iCode</p>
+                    </div>
+                </div>
+                            <div class="col-lg-4 mt-4 mt-lg-0">
+                    <div class="games-card h-100 position-relative">
+                        <div class="games-card-media mb-3 position-relative">
+                            <img src="img/thumb_slotjs.png?d=20231214165915" class="img-fluid" alt="" style="filter: grayscale(100%);">
+                        </div>
+                        <h4>Slot Million</h4>
+                        <p class="fw-semibold small mb-3">iCode</p>
+                    </div>
+                </div>
+                    </div>
+    </div>
+</section>
+
+    <section id="jackpots" style="display: none;">
+        <div class="container">
+            <div class="carousel" id="carousel1">
+                <div class="carousel-title">
+                    <h1>Novidades</h1>
+                    <h3 class="navegators display-flex gap-4">
+                        <i class="fa-solid fa-chevron-left btn small btn-dark"></i>
+                        <i class="fa-solid fa-chevron-right btn small btn-color"></i>
+                    </h3>
+                </div>
+                <div class="carousel-wrapper">
+                    <div class="carousel-slide">
+                        <div class="image">
+                            <img src="img/5_lions.jpg" alt="">
+                        </div>
+                        <h2>
+                            5 Lions Gold
+                        </h2>
+                        <h3>
+                            Pragmatic Play
+                        </h3>
+                        <div class="actions display-flex justify-content-start">
+                            <a class="btn btn-gold open-signup-trigger" href="#"> <i class="fa-solid fa-play"></i> Jogar</a>
+                            <a class="btn btn-color" href="#"><i class="fa-solid fa-heart"></i></a>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="image">
+                            <img src="img/buffalo_king.jpg" alt="">
+                        </div>
+                        <h2>
+                            Buffalo King
+                        </h2>
+                        <h3>
+                            iCode
+                        </h3>
+                        <div class="actions display-flex justify-content-start">
+                            <a class="btn btn-gold open-signup-trigger" href="#"> <i class="fa-solid fa-play"></i> Jogar</a>
+                            <a class="btn btn-color" href="#"><i class="fa-solid fa-heart"></i></a>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="image">
+                            <img src="img/caishen_wins.jpg" alt="">
+                        </div>
+                        <h2>
+                            Caishen Wins
+                        </h2>
+                        <h3>
+                            iCode
+                        </h3>
+                        <div class="actions display-flex justify-content-start">
+                            <a class="btn btn-gold open-signup-trigger" href="#"> <i class="fa-solid fa-play"></i> Jogar</a>
+                            <a class="btn btn-color" href="#"><i class="fa-solid fa-heart"></i></a>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="image">
+                            <img src="img/dragon_hatch.jpg" alt="">
+                        </div>
+                        <h2>
+                            Dragon Hatch
+                        </h2>
+                        <h3>
+                            iCode
+                        </h3>
+                        <div class="actions display-flex justify-content-start">
+                            <a class="btn btn-gold open-signup-trigger" href="#"> <i class="fa-solid fa-play"></i> Jogar</a>
+                            <a class="btn btn-color" href="#"><i class="fa-solid fa-heart"></i></a>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="image">
+                            <img src="img/dragon_tiger.jpg" alt="">
+                        </div>
+                        <h2>
+                            Dragon Tiger Luck
+                        </h2>
+                        <h3>
+                            iCode
+                        </h3>
+                        <div class="actions display-flex justify-content-start">
+                            <a class="btn btn-gold open-signup-trigger" href="#"> <i class="fa-solid fa-play"></i> Jogar</a>
+                            <a class="btn btn-color" href="#"><i class="fa-solid fa-heart"></i></a>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="image">
+                            <img src="img/fortune_tree.jpg" alt="">
+                        </div>
+                        <h2>
+                            Fortune Tree
+                        </h2>
+                        <h3>
+                            iCode
+                        </h3>
+                        <div class="actions display-flex justify-content-start">
+                            <a class="btn btn-gold open-signup-trigger" href="#"> <i class="fa-solid fa-play"></i> Jogar</a>
+                            <a class="btn btn-color" href="#"><i class="fa-solid fa-heart"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+<section id="jackpots" style="display: none;">
+    <div class="container">
+        <div class="carousel" id="carousel1">
+            <div class="carousel-title">
+                <h1>Queridinhos</h1>
+                <h3 class="navegators display-flex gap-4">
+                    <i class="fa-solid fa-chevron-left btn small btn-dark"></i>
+                    <i class="fa-solid fa-chevron-right btn small btn-color"></i>
+                </h3>
+            </div>
+            <div class="carousel-wrapper">
+                <div class="carousel-slide">
+                    <div class="image">
+                        <img src="img/ganesha_gold.jpg" alt="">
+                    </div>
+                    <h2>
+                        Ganesha Gold
+                    </h2>
+                    <h3>
+                        Pragmatic Play
+                    </h3>
+                    <div class="actions display-flex justify-content-start">
+                        <a class="btn btn-gold open-signup-trigger" href="#"> <i class="fa-solid fa-play"></i> Jogar</a>
+                        <a class="btn btn-color" href="#"><i class="fa-solid fa-heart"></i></a>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="image">
+                        <img src="img/irish_charms.jpg" alt="">
+                    </div>
+                    <h2>
+                        Irish Charms
+                    </h2>
+                    <h3>
+                        iCode
+                    </h3>
+                    <div class="actions display-flex justify-content-start">
+                        <a class="btn btn-gold open-signup-trigger" href="#"> <i class="fa-solid fa-play"></i> Jogar</a>
+                        <a class="btn btn-color" href="#"><i class="fa-solid fa-heart"></i></a>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="image">
+                        <img src="img/sugar_rush.jpg" alt="">
+                    </div>
+                    <h2>
+                        Sugar Rush
+                    </h2>
+                    <h3>
+                        iCode
+                    </h3>
+                    <div class="actions display-flex justify-content-start">
+                        <a class="btn btn-gold open-signup-trigger" href="#"> <i class="fa-solid fa-play"></i> Jogar</a>
+                        <a class="btn btn-color" href="#"><i class="fa-solid fa-heart"></i></a>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="image">
+                        <img src="img/thai_river.jpg" alt="">
+                    </div>
+                    <h2>
+                        Thai Rivers Wonders
+                    </h2>
+                    <h3>
+                        iCode
+                    </h3>
+                    <div class="actions display-flex justify-content-start">
+                        <a class="btn btn-gold open-signup-trigger" href="#"> <i class="fa-solid fa-play"></i> Jogar</a>
+                        <a class="btn btn-color" href="#"><i class="fa-solid fa-heart"></i></a>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="image">
+                        <img src="img/vegas_nights.jpg" alt="">
+                    </div>
+                    <h2>
+                        Vegas Nights
+                    </h2>
+                    <h3>
+                        iCode
+                    </h3>
+                    <div class="actions display-flex justify-content-start">
+                        <a class="btn btn-gold open-signup-trigger" href="#"> <i class="fa-solid fa-play"></i> Jogar</a>
+                        <a class="btn btn-color" href="#"><i class="fa-solid fa-heart"></i></a>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="image">
+                        <img src="img/wild_fireworks.jpg" alt="">
+                    </div>
+                    <h2>
+                        Wild Fireworks
+                    </h2>
+                    <h3>
+                        iCode
+                    </h3>
+                    <div class="actions display-flex justify-content-start">
+                        <a class="btn btn-gold open-signup-trigger" href="#"> <i class="fa-solid fa-play"></i> Jogar</a>
+                        <a class="btn btn-color" href="#"><i class="fa-solid fa-heart"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section id="jackpots" style="display: none;">
+        <div class="container">
+            <div class="carousel" id="carousel1">
+                <div class="carousel-title">
+                    <h1>Em Breve</h1>
+                    <h3 class="navegators display-flex gap-4">
+                        <i class="fa-solid fa-chevron-left btn small btn-dark"></i>
+                        <i class="fa-solid fa-chevron-right btn small btn-color"></i>
+                    </h3>
+                </div>
+                <div class="carousel-wrapper">
+                    <div class="carousel-slide">
+                        <div class="image">
+                            <img src="img/gate.jpg" alt="">
+                        </div>
+                        <h2>
+                            Gate of Olympus
+                        </h2>
+                        <h3>
+                            iCode
+                        </h3>
+                        <div class="actions display-flex justify-content-start">
+                            <a class="btn btn-gold open-credit-warn" href="#"> <i class="fa-solid fa-play"></i> Jogar</a>
+                            <a class="btn btn-color" href="#"><i class="fa-solid fa-heart"></i></a>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="image">
+                            <img src="img/piggy.jpg" alt="">
+                        </div>
+                        <h2>
+                            Piggy Gold
+                        </h2>
+                        <h3>
+                            iCode
+                        </h3>
+                        <div class="actions display-flex justify-content-start">
+                            <a class="btn btn-gold open-credit-warn" href="#"> <i class="fa-solid fa-play"></i> Jogar</a>
+                            <a class="btn btn-color" href="#"><i class="fa-solid fa-heart"></i></a>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="image">
+                            <img src="img/ganesha.jpg" alt="">
+                        </div>
+                        <h2>
+                            Ganesha Fortune
+                        </h2>
+                        <h3>
+                            iCode
+                        </h3>
+                        <div class="actions display-flex justify-content-start">
+                            <a class="btn btn-gold open-credit-warn" href="#"> <i class="fa-solid fa-play"></i> Jogar</a>
+                            <a class="btn btn-color" href="#"><i class="fa-solid fa-heart"></i></a>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="image">
+                            <img src="img/rabbit.jpg" alt="">
+                        </div>
+                        <h2>
+                            Fortune Rabbit
+                        </h2>
+                        <h3>
+                            iCode
+                        </h3>
+                        <div class="actions display-flex justify-content-start">
+                            <a class="btn btn-gold open-credit-warn" href="#"> <i class="fa-solid fa-play"></i> Jogar</a>
+                            <a class="btn btn-color" href="#"><i class="fa-solid fa-heart"></i></a>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="image">
+                            <img src="img/wild.jpg" alt="">
+                        </div>
+                        <h2>
+                            Wild Bandito
+                        </h2>
+                        <h3>
+                            iCode
+                        </h3>
+                        <div class="actions display-flex justify-content-start">
+                            <a class="btn btn-gold open-credit-warn" href="#"> <i class="fa-solid fa-play"></i> Jogar</a>
+                            <a class="btn btn-color" href="#"><i class="fa-solid fa-heart"></i></a>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="image">
+                            <img src="img/dragon.jpg" alt="">
+                        </div>
+                        <h2>
+                            Dragon Legend
+                        </h2>
+                        <h3>
+                            iCode
+                        </h3>
+                        <div class="actions display-flex justify-content-start">
+                            <a class="btn btn-gold open-credit-warn" href="#"> <i class="fa-solid fa-play"></i> Jogar</a>
+                            <a class="btn btn-color" href="#"><i class="fa-solid fa-heart"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+        <section class="section bg-dark" id="winners">
+            <div class="container">
+                <div class="section-title text-center mb-5">
+                    <h3><i class="bi bi-trophy"></i> Ganhadores</h3>
+                </div>
+                <div class="row justify-content-center mt-5 g-5">
+                    <div class="col-lg-4 mt-6 my-lg-3">
+                        <div class="h-100 winners-card shadow-lg rounded-3 p-3">
+                            <div class="winners-card-title mb-3 text-center">
+                                <img src="img/ico-ultimos.png" />
+                                <h4>Últimos ganhadores</h4>
+                            </div>
+                            <ul class="mt-5" id="last-winners-ul"></ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mt-6 mt-lg-0 mb-lg-3 pb-lg-3">
+                        <div class="h-100 winners-card shadow-lg rounded-3 p-3">
+                            <div class="winners-card-title mb-3 text-center">
+                                <img src="img/ico-top.png" />
+                                <h4>Top ganhadores</h4>
+                            </div>
+                            <ul class="mt-5" id="top-winners-ul"></ul>
+                        </div>
+                    </div>
+<!--                    <div class="col-lg-3 mt-4 my-lg-3">-->
+<!--                        <div class="h-100 winners-card shadow-lg rounded-3 p-3">-->
+<!--                            <div class="winners-card-title mb-3 text-center">-->
+<!--                                <img src="img/ico-sortudos.png" />-->
+<!--                                <h4>Os mais sortudos</h4>-->
+<!--                            </div>-->
+<!--                            <ul class="mt-5">-->
+<!--                                --><!--                                    <li class="d-flex align-items-center justify-content-between mb-3">-->
+<!--                                        <div class="d-flex align-items-center gap-2">-->
+<!--                                            <img src="https://cdn-icons-png.flaticon.com/512/3047/3047331.png" width="48" class="rounded-5 img-fluid" alt="">-->
+<!--                                            <div class="d-flex flex-column">-->
+<!--                                                <small class="fw-semibold">--><?//= $names[$count] ?><!--</small>-->
+<!--                                                <small class="text-info fw-semibold">--><?//= number_format(4.00 + $count, 2) ?><!--x</small>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                        <div class="d-flex flex-column">-->
+<!--                                            <small class="extra-small">--><?//= date('h:i a', strtotime("-$count hours")) ?><!--</small>-->
+<!--                                        </div>-->
+<!--                                    </li>-->
+<!--                                --><!--                            </ul>-->
+<!--                        </div>-->
+<!--                    </div>-->
+                </div>
+            </div>
+        </section>
+
+        <section class="section bg-dark" id="faq">
+            <div class="container">
+                <div class="section-title">
+                    <h3>Perguntas frequentes</h3>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-lg-6 order-lg-1 order-2 d-none d-lg-block">
+                        <div>
+                            <img src="img/faq.png" class="img-fluid" alt="">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 order-lg-2 order-1">
+                        <div class="faq-items accordion">
+                            <!-- faq item start -->
+                            <!-- ================= -->
+                            <div class="faq-item">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            COMO FUNCIONA?
+                                        </button>
+                                    </h2>
+                                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            Renda com Jogos é o mais novo jogo divertido e lucrativo da galera! Lembra daquele joguinho que quando criança nos jogavamos e que todo mundo era viciado? Ele voltou e agora dá para ganhar dinheiro se divertindo, é super simples e você ganhará dinheiro na hora.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne2" aria-expanded="true" aria-controls="collapseOne">
+                                            COMO POSSO SACAR?
+                                        </button>
+                                    </h2>
+                                    <div id="collapseOne2" class="accordion-collapse collapse show" data-bs-parent="#accordionExample2">
+                                        <div class="accordion-body">
+                                            O saque é instantâneo. Utilizamos a sua chave PIX como CPF para enviar o pagamento.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne3" aria-expanded="true" aria-controls="collapseOne">
+                                            JOGO RESPONSÁVEL
+                                        </button>
+                                    </h2>
+                                    <div id="collapseOne3" class="accordion-collapse collapse show" data-bs-parent="#accordionExample3">
+                                        <div class="accordion-body">
+                                            É proibido jogar para pessoas com menos de 18 anos.
+                                            O jogo on-line é uma maneira divertida e gratificante de gastar seu tempo. Entretanto, nós temos em mente os melhores interesses dos nossos jogadores. Nós apoiamos o jogo responsável.
+                                            Como o jogo on-line cresceu na última década, os sites de apostas on-line para cassino, se tornaram facilmente acessíveis ao toque de um botão. A qualquer hora e em qualquer lugar. Isto torna mais difícil para os jogadores estabelecer limites.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- faq item end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="bg-dark py-5">
+            <div class="container">
+                <div class="row justify-content-between g-5">
+                    <div class="col-lg-4 order-1 order-lg-1">
+                        <div class="footer-content">
+                            <div class="brand-content mb-2">
+                                <img src="./img/logo-oficial.png?d=20231214165915" class="img-fluid" width="120" alt="">
+                            </div>
+                            <p class="fw-normal">Onde a sorte é virtual, mas os ganhos são reais!</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 offset-lg-2 order-3 order-lg-2">
+                        <div class="footer-content">
+                           <ul class="footer-links">
+                                <li>
+                                    <a href="termo-de-uso-oficial.pdf" target="_blank">Termos de Uso</a>
+                                </li>
+                                <li>
+                                    <a href="termo-de-uso-oficial.pdf" target="_blank">Política de Privacidade</a>
+                                </li>
+                                <li>
+                                    <a href="#">Política de Cookies</a>
+                                </li>
+                           </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 order-4 order-lg-3">
+                        <div class="footer-content">
+                            <ul class="footer-links">
+                                <li>
+                                    <a href="#">Sobre Nós</a>
+                                </li>
+                                <li>
+                                    <a href="#">Perguntas Frequentes</a>
+                                </li>
+                                <li>
+                                    <a href="#">Central de Ajuda</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 order-2 order-lg-4">
+<!--                        <div class="footer-content">-->
+<!--                            <h6 class="text-primary mb-3 text-white">Siga-nos</h6>-->
+<!--                            <ul class="footer-social-links d-flex gap-2">-->
+<!--                                <li><a href="#"><img src="img/facebook.svg" alt=""></a></li>-->
+<!--                                <li><a href="#"><img src="img/instagram.svg" alt=""></a></li>-->
+<!--                                <li><a href="#"><img src="img/twitter.svg" alt=""></a></li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <div class="modal fade" id="signup" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content bg-dark">
+                <div class="modal-body px-4">
+                    <div class="text-end">
+                        <button type="button" class="btn-close text-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="text-center mb-3">
+                        <img src="./img/logo-oficial.png?d=20231214165915" style="border-radius: 10px;" alt="logo genio 777" width="160">
+                    </div>
+                    <h3>Crie sua conta</h3>
+                    <form action="" method="post" id="signup-form">
+                        <div class="mb-3">
+                            <input type="hidden" name="af_invite" class="form-control" value="">
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" name="email" class="form-control" id="email" placeholder="E-mail" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" name="username" class="form-control" id="username" placeholder="Nome" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="password" name="password" class="form-control" id="password" placeholder="Senha" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="small mb-1" for="tel">Telefone</label>
+                            <input type="tel" name="phone" class="form-control" id="tel" placeholder="(xx) x xxxx-xxxx" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="small mb-1" for="cpf-cad">CPF</label>
+                            <input type="tel" name="cpf-cad" class="form-control" id="cpf-cad" placeholder="xxx.xxx.xxx-xx" required onkeydown="javascript: fMasc( this, mCPF );" maxlength="14">
+                        </div>
+                        <button type="submit" class="btn btn-primary px-5 mb-3 w-100">Criar conta</button>
+                        <div class="small">
+                            Ao criar minha conta declaro que li e concordo com os <br /><a href="termo-de-uso-oficial.pdf" target="_blank">Termos de Uso</a> e <a href="termo-de-uso-oficial.pdf" target="_blank">Política de Privacidade</a>
+                        </div>
+                        <div class="mt-5 text-center text-white small">
+                            <p>Já tem uma conta? <a href="#" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#signin">Faça login</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="signin" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content bg-dark">
+                <div class="modal-body px-4">
+                    <div class="text-end">
+                        <button type="button" class="btn-close text-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="text-center mb-3">
+                        <img src="./img/logo-oficial.png?d=20231214165915" style="border-radius: 10px;" alt="logo genio 777" width="160">
+                    </div>
+                    <h3>Bem-vindo de volta!</h3>
+                    <form action="" method="post" id="signin-form-modal">
+                        <div class="mb-3">
+                            <input type="email" name="email" class="form-control" id="login-email" placeholder="E-mail" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="password" name="password" class="form-control" id="login-password" placeholder="Senha" required>
+                        </div>
+                        <button type="button" onclick="auth();" class="btn btn-primary px-5 w-100">Entrar</button>
+                    </form>
+                    <div class="text-center text-white mt-5 small">
+                        <p class="mb-1"><a href="#" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#forgot-password">Esqueceu a senha?</a></p>
+                        <p>Não tem uma conta? <a href="#" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#signup">Cadastre-se agora</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="forgot-password" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content bg-dark">
+                <div class="modal-body px-4">
+                    <div class="text-end">
+                        <button type="button" class="btn-close text-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="text-center mb-3">
+                        <img src="./img/logo-oficial.png" style="border-radius: 10px;" alt="logo genio 777" width="160">
+                    </div>
+                    <h3>Esqueceu sua senha?</h3>
+                    <p>Insira o email da sua conta para receber sua senha de acesso.</p>
+                    <form action="" class="mb-3" method="post" id="forgot-password-form">
+                        <div class="mb-3">
+                            <input type="email" name="email" class="form-control" placeholder="E-mail" required>
+                        </div>
+                        <button type="submit" id="recover-password-btn" class="btn btn-primary px-5 w-100">Recuperar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="wallet" tabindex="-1" aria-hidden="true">7
+        <div class="modal-dialog modal-dialog-centered modal-sm">  
+            <div class="modal-content bg-dark">
+                <div class="modal-body px-4">
+                    <div class="text-end">
+                        <button type="button" class="btn-close text-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="text-center mb-3">
+                        <img src="./img/logo-oficial.png?d=20231214165915" style="border-radius: 10px;" alt="logo genio 777" width="160">
+                    </div>
+                    <h3 class="text-center"><span style="opacity: .7;">R$0,00 (+<span style="color:lime;">0,00</span> bonus)</h3>
+                    <form class="mb-3" action="" method="POST" id="deposit-form-modal">
+                        <div class="mb-3">
+                            <input type="text" name="amount" class="form-control" id="amount" placeholder="R$ " required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" name="cpf" class="form-control" id="cpf" placeholder="CPF (apenas números)" onkeydown="javascript: fMasc( this, mCPF );" maxlength="14" readonly value="040.322.052-13" >
+                        </div>
+                                                    <div style="background: #ff4800;
+                                display:flex;
+                                align-items:center;
+                                color: white;
+                                padding: 10px;
+                                margin: 0;
+                                margin-bottom: 0px;
+                                margin-bottom: 1em;
+                                border-radius: 3px;
+                                width: 100%;">
+                                <label class="" style="color:white !important;">
+                                    <input type="checkbox" name="bonus" value="1" style="width:unset;">
+                                    Desejo receber meu bônus de primeiro depósito.
+                                </label>
+                            </div>
+                                                <button type="submit" class="btn btn-primary px-5 w-100" id="btn-deposit">Depositar</button>
+                    </form>
+                    <div id="payment-info" class="text-center center" style="text-align: center; margin: 0 auto; display: none;">
+                        (Clique no link PIX copiar)
+                        <br /><br />
+                        <p class="pix" id="pix" style="word-wrap: break-word; overflow: hidden; max-width: 100%; cursor: pointer;"></p>
+                        <br />
+                        <style>
+                            #qrcode-div {
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                height: 50vh;
+                            }
+                        </style>
+                        <div style="background-color: white; display: none; text-align: center;" class="text-center center" id="qrcodegen">
+                            <div id="qrcode-div" class="text-center center" style="margin: 0 auto; text-align: center;">
+                            </div>
+                        </div>
+                        <img src="" alt="" id="qrcode" style="max-width: 280px;">
+                        <br />
+                        <button type="button" onclick="document.location.reload()" class="btn btn-color" style="color: whitesmoke;">Clique aqui após realizar o pagamento</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="wallet-saque" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content bg-dark">
+                <div class="modal-body px-4">
+                    <div class="text-end">
+                        <button type="button" class="btn-close text-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="text-center mb-3">
+                        <img src="./img/logo-oficial.png?d=20231214165915" style="border-radius: 10px;" style="border-radius: 10px;" alt="logo genio 777" width="160">
+                    </div>
+                    <div class="text-center small">
+                        <h3><span style="opacity: .7;">R$0,00 (+<span style="color:lime;">0,00</span> bonus)</span></h3>
+                    </div>
+                    <div class="c2" id="withdraw-modal-content">
+                        <h3>Saque</h3>
+                        <form action="" method="POST" id="withdraw-form-modal">
+                            <div class="mb-3">
+                                <input type="text" name="amount" class="form-control" id="amount" placeholder="R$ " required>
+                            </div>
+                            <h4>Escolha sua chave PIX</h4>
+                            <div class="mb-3">
+                                <input onclick="changePix(1, this);" type="text" name="pix_key_cpf" class="form-control pix-input" id="pix_key_cpf" placeholder="Chave PIX" data-original-value="040.322.052-13" value="04******213" readonly>
+                            </div>
+                            <div class="mb-3">
+                                <input onclick="changePix(2, this);" type="text" name="pix_key_phone" class="form-control pix-input" id="pix_key_phone" placeholder="Chave PIX" data-original-value="(92) 9 9272-7830" value="(92) ******-7830" readonly>
+                            </div>
+                            <div class="mb-3">
+                                <input onclick="changePix(3, this);" type="text" name="pix_key_email" class="form-control pix-input" id="pix_key_email" placeholder="Chave PIX" data-original-value="juanamaral332@gmail.com" value="juanamar******gmail.com" readonly>
+                            </div>
+                            <script>
+                                function changePix(type, element) {
+                                    // Remove a borda laranja de todos os inputs
+                                    document.querySelectorAll('.pix-input').forEach(function (input) {
+                                        input.style.border = '';
+                                    });
+
+                                    // Adiciona a borda laranja no input clicado
+                                    element.style.border = '3px solid orange';
+
+                                    // Atualiza o valor do campo escondido (id pix_key) com o valor original do input clicado
+                                    document.getElementById('pix_key').value = element.getAttribute('data-original-value');
+                                }
+                            </script>
+                            <input type="hidden" name="pix_key" class="form-control" id="pix_key" placeholder="Chave PIX" value="">
+                            <button type="submit" class="btn btn-primary px-5 w-100">Sacar</button>
+                        </form>
+                    </div>
+                    <br />
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--    <div id="stake" class="modal">-->
+<!--        <div class="modal-content modal-dark">-->
+<!--            <h1 id="close-stake" class="close gray"><i class="fa-solid fa-xmark"></i></h1>-->
+<!--            <div class="display-flex align-items-center">-->
+<!--                <img src="--><?//=LOGO?><!--" style="border-radius: 10px;" alt="logo genio 777" style="max-width: 240px;">-->
+<!--            </div>-->
+<!--            <h3>SALDO: <span style="opacity: .7;">R$--><?//= $user['credit'] ?><!-- (+<span style="color:lime;">--><?//= $user['bonus'] ?><!--</span> bonus)</h3>-->
+<!---->
+<!--            <div>-->
+<!--                <div class="c2">-->
+<!--                    <span id="info-game-stake">-->
+<!--                        <h3 style="text-align: center;">CORTAR FRUTAS</h3>-->
+<!--                        <h4>Cada fruta tem um valor pré determinado, ao corta-la você coleta seu valor, e é melhor não deixar ela cair, #ficadica!</h4>-->
+<!--                    </span>-->
+<!--                    <br>-->
+<!--                    <h4><strong>Valor de entrada:</strong></h4>-->
+<!--                    <form action="" method="POST">-->
+<!--                        <input style="width: 100%;" type="text" name="stake-in" class="stake-in" placeholder="R$ " required>-->
+<!--                        <button type="button" class="btn btn-color send-stake">Cortar para Ganhar</button>-->
+<!--                    </form>-->
+<!--                </div>-->
+<!--                <br />-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+    <input type="hidden" id="main" value="3cc5760a-b64e-4e1f-8eff-c9e428bbe5b3">
+
+    <div class="modal fade" id="stake-2" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content bg-dark">
+                <div class="modal-body px-4">
+                    <div class="text-end">
+                        <button type="button" class="btn-close text-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="text-center mb-3">
+                        <img src="./img/logo-oficial.png?d=20231214165915" style="border-radius: 10px;" alt="logo genio 777" width="160">
+                    </div>
+                    <h3 class="text-center m-0" id="balanceResolve">SALDO: <span style="opacity: .7;">R$0,00 (+<span style="color:lime;">0,00</span> bonus)</h3>
+                    <div class="my-3">
+                        <span id="info-game-stake">
+                            <h3 style="text-align: center;">Cortar frutas</h3>
+                            <p class="small mb-3">Cada fruta tem um valor pré determinado, ao corta-la você coleta seu valor, e é melhor não deixar ela cair, #ficadica!</p>
+                        </span>
+
+                        <form action="" method="POST">
+                            <div class="mb-3">
+                                <label class="small mb-1" for="">Valor de entrada</label>
+                                <input style="width: 100%;" type="text" name="stake-in" class="stake-in-2 form-control" placeholder="R$ " required>
+                            </div>
+                            <button type="button" class="btn btn-primary px-5 send-stake-2 w-100">JOGAR AGORA</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="support-container" style="max-width: 100px; position: sticky; left: 100%; margin-right: -2rem; bottom: 1rem;">
+        <a href="https://api.whatsapp.com/send?phone=" target="_blank">
+                          <img src="https://imagepng.org/wp-content/uploads/2017/08/whatsapp-icone-2.png" style="max-width: 50px;" alt="icone whatsapp">
+                      </a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="./js/index.js?d=20231214165915"></script>
+
+    <script>
+        document.getElementById("forgot-password-form").addEventListener("submit", e => {
+            document.getElementById("recover-password-btn").style.opacity = ".5"
+            document.getElementById("recover-password-btn").innerText = "Aguarde..."
+            console.log("Forgot password")
+            e.preventDefault()
+            var formData = new FormData(e.target)
+            api.post("/forgot-password.php", formData).then(res => {
+                const {
+                    data
+                } = res
+                console.log(data)
+                if (data.error) {
+                    error(data.error)
+                } else if (data.success) {
+                    success("Seus dados de acesso foram enviados para o email informado.").then(e => {
+                        document.location.reload()
+                    })
+
+                }
+            })
+        })
+
+
+        
+            const handleOpenWallet = e => {
+                document.getElementById("withdraw-modal-content").style.display = "block"
+                document.getElementById("deposit-form-modal").style.display = "block"
+                document.getElementById("payment-info").style.display = "none"
+            }
+            // document.getElementById("open-wallet").addEventListener("click", handleOpenWallet);
+            $(".open-wallet").click(function(){
+                handleOpenWallet();
+            });
+
+
+            [...document.getElementsByClassName("open-credit-warn")].forEach(e => {
+                e.onclick = () => {
+                    error("Você precisa de pelo menos R$1,00 de saldo para jogar").then(a => {
+                        console.log("Open wallet")
+                        document.getElementById("open-wallet").click();
+                        console.log("Opened")
+                    });
+                }
+            })
+
+            const handleSubmitWithdraw = e => {
+                e.preventDefault()
+                var formData = new FormData(e.target)
+
+                if ($("#pix_key").val() == '') {
+                    error("Escolha a sua chave PIX!");
+                    return;
+                }
+
+                api.post("/withdraw.php", formData).then(res => {
+                    const {
+                        data
+                    } = res
+                    console.log(data)
+                    if (data.error) {
+                        error(data.error)
+                    } else if (data.success) {
+                        success(data.message)
+                        checkBalance();
+                    }
+                })
+            }
+
+            const handleSubmitDeposit = e => {
+                $("#qrcode-div").html('');
+                document.getElementById("btn-deposit").disabled = true;
+                document.getElementById("btn-deposit").innerText = "Carregando...";
+                e.preventDefault()
+                var formData = new FormData(e.target)
+                api.post("/deposit.php", formData).then(res => {
+                    const {
+                        data
+                    } = res
+                    console.log(data)
+                    document.getElementById("btn-deposit").disabled = false;
+                    document.getElementById("btn-deposit").innerText = "Depositar";
+                    if (data.error) {
+                        //error(data.error)
+                        Swal.fire({
+                            title: 'Ops!',
+                            text: data.error,
+                            icon: 'error',
+                            confirmButtonText: 'Tente novamente'
+                        });
+                    } else if (data.success) {
+                        if (data.pix) {
+                            document.getElementById("withdraw-modal-content").style.display = "none"
+                            document.getElementById("deposit-form-modal").style.display = "none"
+                            document.getElementById("payment-info").style.display = "block"
+
+                            document.getElementById("pix").innerText = data.pix
+                            document.getElementById("pix").addEventListener("click", e => {
+                                navigator.clipboard.writeText(data.pix)
+                                success("Copiado com sucesso");
+                            })
+                            if (data.qrcode != "") {
+                                document.getElementById("qrcode").setAttribute("src", "data:image/png;base64, " + data.qrcode)    
+                            } else {
+                                $("#qrcodegen").css("display", "block");
+                                new QRCode(document.getElementById("qrcode-div"), {
+                                    text: data.pix,
+                                    width: 240,
+                                    height: 240,
+                                    colorDark: "#000000",
+                                    colorLight: "#ffffff",
+                                    correctLevel : QRCode.CorrectLevel.H
+                                });
+                            }
+                        }
+                    }
+
+                })
+            }
+            document.getElementById("withdraw-form-modal").addEventListener("submit", handleSubmitWithdraw)
+
+
+            document.getElementById("deposit-form-modal").addEventListener("submit", handleSubmitDeposit)
+
+            </script>
+    <script>
+        // RIPPED /////////////////////////////////////////////////
+        function shuffle(array) {
+            let currentIndex = array.length,
+                randomIndex;
+
+            // While there remain elements to shuffle.
+            while (currentIndex != 0) {
+
+                // Pick a remaining element.
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex--;
+
+                // And swap it with the current element.
+                [array[currentIndex], array[randomIndex]] = [
+                    array[randomIndex], array[currentIndex]
+                ];
+            }
+
+            return array;
+        }
+
+
+        function randint(min, max) {
+            return Math.random() * (max - min) + min;
+        }
+        ////////////////////////////////////////////////////////////
+
+
+        const updateRanks = async () => {
+            const gamesIcons = [
+                'https://www.clickjogos.com.br/_next/image?url=https%3A%2F%2Fcj.ibxk.com.br%2F2022%2F10%2F25%2F25134944960258.jpg&w=2048&q=75',
+                'https://img.nsctotal.com.br/wp-content/uploads/2023/03/jogo-super-mario-bros-1-800x531.jpg'
+            ]
+            const lastWinners = `PsychoFox
+General
+Darling
+Blimpie
+Rabbit
+Cheddar
+Fatty
+Braniac
+Senior
+Peppa Pig
+Admiral
+String Bean`.split("\n")
+            shuffle(lastWinners)
+            let lastWinnersUl = document.getElementById("last-winners-ul")
+
+            lastWinnersUl.innerHTML = "";
+
+            lastWinnersUl.style.transition = "opacity .4s";
+            lastWinnersUl.style.opacity = ".3";
+
+            for (i = 0; i < 10; i++) {
+                shuffle(gamesIcons)
+                amount = randint(5, 100).toFixed(2)
+                lastWinnersUl.innerHTML += `
+                <li class="d-flex align-items-center justify-content-between mb-3">
+                    <div class="d-flex align-items-center gap-2">
+                        <img src="./img/logo-oficial.png?d=20231214165915"  width="48" class="rounded-5 img-fluid" alt="">
+                        <div class="d-flex flex-column">
+                            <small class="fw-semibold">${lastWinners[i][0]}*****${lastWinners[i][lastWinners[i].length-1]}</small>
+                            <small class="text-info fw-semibold">R$ ${amount}</small>
+                        </div>
+                    </div>
+                </li>
+                `
+            }
+            setTimeout(e => {
+                lastWinnersUl.style.transition = "opacity 1s";
+                lastWinnersUl.style.opacity = "1";
+            }, 10000)
+
+
+
+
+
+            const topWinners = `PsychoFox
+General
+Darling
+Blimpie
+Rabbit
+Cheddar
+Fatty
+Braniac
+Senior
+Peppa Pig
+Admiral
+String Bean`.split("\n")
+            //           const lastWinners = ['Player 1', 'Player 2', 'Player 3', 'Player 4', 'Player 5'];
+            shuffle(topWinners)
+            let topWinnersUl = document.getElementById("top-winners-ul")
+
+            topWinnersUl.innerHTML = "";
+
+            topWinnersUl.style.transition = "opacity .4s";
+            topWinnersUl.style.opacity = ".3";
+
+            for (i = 0; i < 10; i++) {
+                shuffle(gamesIcons)
+                amount = randint(5, 100).toFixed(2)
+                topWinnersUl.innerHTML += `
+                <li class="d-flex align-items-center justify-content-between mb-3">
+                    <div class="d-flex align-items-center gap-2">
+                        <img src="./img/logo-oficial.png?d=20231214165915"  width="48" class="rounded-5 img-fluid" alt="">
+                        <div class="d-flex flex-column">
+                            <small class="fw-semibold">${topWinners[i][0]}*****${topWinners[i][topWinners[i].length-1]}</small>
+                            <small class="text-info fw-semibold">R$ ${amount}</small>
+                        </div>
+                    </div>
+                </li>
+                `
+            }
+            setTimeout(e => {
+                topWinnersUl.style.transition = "opacity 1s";
+                topWinnersUl.style.opacity = "1";
+
+            }, 10000)
+
+
+
+
+        }
+        updateRanks()
+        setInterval(updateRanks, 3000);
+    </script>
+
+    <script>
+    const swiper = new Swiper('.swiper', {
+        slidesPerView: 1,
+        spaceBetween: 0,
+        freeMode: true,
+        // navigation: {
+        //     nextEl: ".next-launchpad",
+        //     prevEl: ".prev-launchpad",
+        // },
+        autoplay: {
+            delay: 2000, 
+            disableOnInteraction: true, 
+        },
+        grabCursor: true,
+        breakpoints: {
+            "@0.00": {
+                slidesPerView: 1,
+                spaceBetween: 10,
+            },
+            "@0.75": {
+                slidesPerView: 1,
+                spaceBetween: 20,
+            },
+            "@1.00": {
+                slidesPerView: 1,
+                spaceBetween: 20,
+            },
+            "@1.50": {
+                slidesPerView: 1,
+                spaceBetween: 20,
+            },
+        },
+    });
+
+    $(document).ready(function(){
+        // Quando o usuário rolar a página, execute esta função
+        $(window).scroll(function() {
+            // Defina a distância (em pixels) a partir da qual você quer adicionar/remover a classe
+            var scrollDistance = 50;
+
+            // Se eles rolaram mais do que a distância definida
+            if ($(this).scrollTop() > scrollDistance) {
+                // Adicione a classe ao elemento desejado
+                $('#header').addClass('scrolled');
+            } else {
+                // Remova a classe do elemento desejado
+                $('#header').removeClass('scrolled');
+            }
+        });
+    });
+
+    $(".close-dropdown-quests").click(function(){
+        $(this).closest('.dropdown').find('.dropdown-menu').removeClass('show');
+    })
+    </script>
+
+</body>
+
+</html>

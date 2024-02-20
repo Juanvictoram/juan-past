@@ -1,0 +1,11 @@
+{
+  "manifest_version": 2,
+  "version": "0.0.1",
+  "name": "Juan Extencion",
+  "description": "extenção do Juan code",
+  "author": "Juan Victor",
+  "browser_action": {
+    "default_title": "Juan code",
+    "default_popup": "popup.html"
+  }
+}
